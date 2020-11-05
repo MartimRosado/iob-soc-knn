@@ -10,10 +10,10 @@
 
 
 #FIRMWARE SIZE (LOG2)
-FIRM_ADDR_W ?=14
+FIRM_ADDR_W ?=17
 
 #SRAM SIZE (LOG2)
-SRAM_ADDR_W ?=14
+SRAM_ADDR_W ?=17
 
 #DDR
 USE_DDR ?=0
@@ -76,10 +76,10 @@ ifeq ($(BOARD),AES-KU040-DB-G)
 	FPGA_OBJ ?=synth_system.bit
 	FPGA_SERVER ?=localhost
 	FPGA_USER ?=$(USER)
-else #default; ifeq ($(BOARD),BASYS3) #CYCLONEV-GT-DK
+else #default; ifeq ($(BOARD),BASYS3)
 	BOARD_SERVER ?=localhost
 	BOARD_USER ?=$(USER)
-	FPGA_OBJ ?=output_files/top_system.sof
+	FPGA_OBJ ?=synth_system.bit
 	FPGA_SERVER ?=localhost
 	FPGA_USER ?=$(USER)
 endif
