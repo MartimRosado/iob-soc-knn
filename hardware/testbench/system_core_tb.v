@@ -13,7 +13,7 @@ module system_tb;
    reg clk = 1;
    always #(clk_per/2) clk = ~clk;
 
-   //reset 
+   //reset
    reg reset = 1;
 
    //received by getchar
@@ -33,7 +33,7 @@ module system_tb;
 
    //PWIRES
 
-   
+
    /////////////////////////////////////////////
    // TEST PROCEDURE
    //
@@ -47,12 +47,12 @@ module system_tb;
       //init cpu bus signals
       uart_valid = 0;
       uart_wstrb = 0;
-      
+
       // deassert rst
       repeat (100) @(posedge clk);
       reset <= 0;
 
-      //wait an arbitray (10) number of cycles 
+      //wait an arbitray (10) number of cycles
       repeat (10) @(posedge clk) #1;
 
       // configure uart
@@ -66,7 +66,7 @@ module system_tb;
       cpu_sendfile();
       //uncomment for debug
       //cpu_receivefile();
-`endif      
+`endif
       //run firmware
       cpu_run();
 
@@ -74,7 +74,7 @@ module system_tb;
 
    end
 
-   
+
    //
    // INSTANTIATE COMPONENTS
    //
@@ -127,7 +127,7 @@ module system_tb;
 
    //cpu trap signal
    wire                    trap;
-   
+
    //
    // UNIT UNDER TEST
    //
@@ -146,20 +146,20 @@ module system_tb;
 	       .m_axi_awqos   (ddr_awqos),
 	       .m_axi_awvalid (ddr_awvalid),
 	       .m_axi_awready (ddr_awready),
-               
-	       //write  
+
+	       //write
 	       .m_axi_wdata   (ddr_wdata),
 	       .m_axi_wstrb   (ddr_wstrb),
 	       .m_axi_wlast   (ddr_wlast),
 	       .m_axi_wvalid  (ddr_wvalid),
 	       .m_axi_wready  (ddr_wready),
-               
+
 	       //write response
 	       //.m_axi_bid     (ddr_bid[0]),
 	       .m_axi_bresp   (ddr_bresp),
 	       .m_axi_bvalid  (ddr_bvalid),
 	       .m_axi_bready  (ddr_bready),
-               
+
 	       //address read
 	       .m_axi_arid    (ddr_arid),
 	       .m_axi_araddr  (ddr_araddr),
@@ -172,15 +172,15 @@ module system_tb;
 	       .m_axi_arqos   (ddr_arqos),
 	       .m_axi_arvalid (ddr_arvalid),
 	       .m_axi_arready (ddr_arready),
-               
-	       //read   
+
+	       //read
 	       //.m_axi_rid     (ddr_rid[0]),
 	       .m_axi_rdata   (ddr_rdata),
 	       .m_axi_rresp   (ddr_rresp),
 	       .m_axi_rlast   (ddr_rlast),
 	       .m_axi_rvalid  (ddr_rvalid),
-	       .m_axi_rready  (ddr_rready),	
-`endif               
+	       .m_axi_rready  (ddr_rready),
+`endif
 	       .clk           (clk),
 	       .reset         (reset),
 	       .trap          (trap)
@@ -189,7 +189,7 @@ module system_tb;
 
    //instantiate the axi memory
 `ifdef USE_DDR
-   axi_ram 
+   axi_ram
      #(
  `ifdef DDR_INIT
        .FILE("firmware.hex"),
@@ -211,45 +211,45 @@ module system_tb;
 		 .s_axi_awcache  (ddr_awcache),
      		 .s_axi_awvalid  (ddr_awvalid),
 		 .s_axi_awready  (ddr_awready),
-      
-		 //write  
+
+		 //write
 		 .s_axi_wvalid   (ddr_wvalid),
 		 .s_axi_wready   (ddr_wready),
 		 .s_axi_wdata    (ddr_wdata),
 		 .s_axi_wstrb    (ddr_wstrb),
                  .s_axi_wlast    (ddr_wlast),
-      
+
 		 //write response
 		 .s_axi_bready   (ddr_bready),
                  .s_axi_bid      (ddr_bid),
                  .s_axi_bresp    (ddr_bresp),
 		 .s_axi_bvalid   (ddr_bvalid),
-      
+
 		 //address read
 		 .s_axi_arid     ({8{ddr_arid}}),
 		 .s_axi_araddr   (ddr_araddr[`DDR_ADDR_W-1:0]),
-		 .s_axi_arlen    (ddr_arlen), 
-		 .s_axi_arsize   (ddr_arsize),    
+		 .s_axi_arlen    (ddr_arlen),
+		 .s_axi_arsize   (ddr_arsize),
                  .s_axi_arburst  (ddr_arburst),
                  .s_axi_arlock   (ddr_arlock),
                  .s_axi_arcache  (ddr_arcache),
                  .s_axi_arprot   (ddr_arprot),
 		 .s_axi_arvalid  (ddr_arvalid),
 		 .s_axi_arready  (ddr_arready),
-      
-		 //read   
+
+		 //read
 		 .s_axi_rready   (ddr_rready),
 		 .s_axi_rid      (ddr_rid),
 		 .s_axi_rdata    (ddr_rdata),
 		 .s_axi_rresp    (ddr_rresp),
                  .s_axi_rlast    (ddr_rlast),
 		 .s_axi_rvalid   (ddr_rvalid)
-                 );   
+                 );
 `endif
 
 
 `include "cpu_tasks.v"
-   
+
    //finish simulation
    //always @(posedge trap) begin
    // #10 $display("Found CPU trap condition");
