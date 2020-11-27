@@ -36,7 +36,7 @@ sim-waves: $(SIM_DIR)/../waves.gtkw $(SIM_DIR)/system.vcd
 	gtkwave -a $^ &
 
 $(SIM_DIR)/../waves.gtkw $(SIM_DIR)/system.vcd:
-	make sim INIT_MEM=$(INIT_MEM) USE_DDR=$(USE_DDR) RUN_DDR=$(RUN_DDR) VCD=$(VCD)
+	make sim INIT_MEM=$(INIT_MEM) USE_DDR=$(USE_DDR) RUN_DDR=$(RUN_DDR) VCD=1
 
 sim-clean: sw-clean
 	make -C $(SIM_DIR) clean
