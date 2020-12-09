@@ -13,6 +13,3 @@
 [submodule "submodules/KNN"]
 	path = submodules/KNN
 	url = git@github.com:MartimRosado/iob-knn.git
-[submodule "submodules/TEX"]
-	path = submodules/TEX
-	url = git@github.com:MiguelAReis/iob-tex.git
