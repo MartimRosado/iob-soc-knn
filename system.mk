@@ -71,7 +71,7 @@ LOCAL_FPGA_LIST=CYCLONEV-GT-DK AES-KU040-DB-G BASYS3
 
 #set according to FPGA board
 ifeq ($(BOARD),AES-KU040-DB-G)
-	BOARD_SERVER ?=localhost
+	BOARD_SERVER ?=baba-de-camelo.iobundle.com
 	BOARD_USER ?=$(USER)
 	FPGA_OBJ ?=synth_system.bit
 	FPGA_LOG ?=vivado.log
