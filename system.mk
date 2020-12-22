@@ -63,7 +63,7 @@ FPGA_DDR_ADDR_W ?=30
 BOARD ?=BASYS3
 
 #Boards for which the FPGA compiler is installed in host
-LOCAL_FPGA_LIST=CYCLONEV-GT-DK AES-KU040-DB-G BASYS3
+LOCAL_FPGA_LIST=BASYS3 #AES-KU040-DB-G CYCLONEV-GT-DK
 
 #boards installed host
 #LOCAL_BOARD_LIST=CYCLONEV-GT-DK
@@ -72,11 +72,11 @@ LOCAL_FPGA_LIST=CYCLONEV-GT-DK AES-KU040-DB-G BASYS3
 #set according to FPGA board
 ifeq ($(BOARD),AES-KU040-DB-G)
 	BOARD_SERVER ?=baba-de-camelo.iobundle.com
-	BOARD_USER ?=$(USER)
+	BOARD_USER ?=trainee
 	FPGA_OBJ ?=synth_system.bit
 	FPGA_LOG ?=vivado.log
 	FPGA_SERVER ?=pudim-flan.iobundle.com
-	FPGA_USER ?=$(USER)
+	FPGA_USER ?=trainee
 else #default; ifeq ($(BOARD),BASYS3) #CYCLONEV-GT-DK
 	BOARD_SERVER ?=localhost
 	BOARD_USER ?=$(USER)
