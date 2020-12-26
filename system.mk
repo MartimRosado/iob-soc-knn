@@ -16,8 +16,8 @@ FIRM_ADDR_W ?=20
 SRAM_ADDR_W ?=20
 
 #DDR
-USE_DDR ?=0
-RUN_DDR ?=0
+USE_DDR ?=1
+RUN_DDR ?=1
 
 #CACHE DATA SIZE (LOG2)
 CACHE_ADDR_W:=24
@@ -79,11 +79,11 @@ ifeq ($(BOARD),AES-KU040-DB-G)
 	FPGA_USER ?=trainee
 else #default; ifeq ($(BOARD),BASYS3) #CYCLONEV-GT-DK
 	BOARD_SERVER ?=localhost
-	BOARD_USER ?=$(USER)
+	BOARD_USER ?=trainee
 	FPGA_OBJ ?=output_files/top_system.sof
 	FPGA_LOG ?=output_files/top_system.fit.summary
 	FPGA_SERVER ?=pudim-flan.iobundle.com
-	FPGA_USER ?=$(USER)
+	FPGA_USER ?=trainee
 endif
 
 #board list for testing

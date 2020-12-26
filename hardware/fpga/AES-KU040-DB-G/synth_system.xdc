@@ -5,9 +5,9 @@
 #  / \===\   \==/
 # /___\===\___\/  AVNET Design Resource Center
 #      \======/         www.em.avnet.com/drc
-#       \====/    
+#       \====/
 # ----------------------------------------------------------------------------
-#  
+#
 #  Disclaimer:
 #     Avnet, Inc. makes no warranty for the use of this code or design.
 #     This code is provided  "As Is". Avnet, Inc assumes no responsibility for
@@ -16,10 +16,10 @@
 #     disclaims any implied warranties of fitness for a particular purpose.
 #                      Copyright(c) 2009 Avnet, Inc.
 #                              All rights reserved.
-# 
+#
 # ----------------------------------------------------------------------------
 
-## System Clock 
+## System Clock
 # LVDS Programmable Clock Generator (CDCM61002)
 #set_property  PACKAGE_PIN M5   [get_ports LVDS_CLK0_N]
 #set_property  PACKAGE_PIN M6   [get_ports LVDS_CLK0_P]
@@ -37,7 +37,7 @@ set_property PACKAGE_PIN H23 [get_ports c0_sys_clk_clk_n]
 set_property IOSTANDARD DIFF_SSTL12 [get_ports c0_sys_clk_clk_p]
 set_property IOSTANDARD DIFF_SSTL12 [get_ports c0_sys_clk_clk_n]
 
-#create_clock -period 4.000 [get_ports c0_sys_clk_clk_p]  
+create_clock -period 4.000 [get_ports c0_sys_clk_clk_p]  
 
 #derive_pll_clocks
 #derive_clock_uncertainty
