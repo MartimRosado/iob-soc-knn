@@ -1,6 +1,7 @@
-# IOb-SoC
+# IOb-SoC-KNN
 
-SoC template comprising an open-source RISC-V processor (picorv32), an internal
+SoC derived from the IOb-SoC template for hosting the IOb-KNN submodule.
+The SoC comprises an open-source RISC-V processor (picorv32), an internal
 SRAM memory subsystem, a UART (iob-uart), and an optional external DDR memory
 subsystem. If selected, an instruction L1 cache, a data L1 cache and a shared L2
 cache is added to the system. The L2 cache communicates with a DDR
@@ -8,7 +9,7 @@ memory controller IP (not provided) using an AXI4 master bus.
 
 ## Clone the repository
 
-``git clone --recursive git@github.com:IObundle/iob-soc.git``
+``git clone --recursive git@github.com:IObundle/iob-soc-knn.git``
 
 Access to Github by *ssh* is mandatory so that submodules can be updated.
 
